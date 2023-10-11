@@ -23,27 +23,35 @@ function Header() {
           />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
+
               <Nav.Link>
                 <Link to="/" className="link-unstyled">Inicio</Link>
               </Nav.Link>
+
               <Nav.Link>
                 <Link to="/about" className="link-unstyled">Informacion</Link>
               </Nav.Link>
+
               <NavDropdown title="Clientes" id="clientes">
                 <NavDropdown.Item>
                   <Link to="/customer" className="link-unstyled">Registrar Cliente</Link>
                 </NavDropdown.Item>
+
                 <NavDropdown.Item>
                   <Link to="/actualizar-cliente" className="link-unstyled">Actualizar Cliente</Link>
                 </NavDropdown.Item>
+
                 <NavDropdown.Item>
                   <Link to="/ver-cliente" className="link-unstyled">Ver Cliente</Link>
                 </NavDropdown.Item>
+
                 <NavDropdown.Divider />
+
                 <NavDropdown.Item>
                   <Link to="/eliminar-cliente" className="link-unstyled">Eliminar Cliente</Link>
                 </NavDropdown.Item>
               </NavDropdown>
+
             </Nav>
           </Navbar.Collapse>
           <Button

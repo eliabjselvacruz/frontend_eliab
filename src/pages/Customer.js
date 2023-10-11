@@ -63,6 +63,7 @@ function Customer() {
             <Card.Title>Registro de Cliente</Card.Title>
             <Form className="mt-3" onSubmit={handleSubmit}>
               <Row className="g-3">
+
                 <Col sm="6" md="6" lg="6">
                   <FloatingLabel controlId="nombre" label="Nombre">
                     <Form.Control
@@ -73,6 +74,7 @@ function Customer() {
                     />
                   </FloatingLabel>
                 </Col>
+
                 <Col sm="6" md="6" lg="6">
                   <FloatingLabel controlId="apellido" label="Apellido">
                     <Form.Control
@@ -83,6 +85,7 @@ function Customer() {
                     />
                   </FloatingLabel>
                 </Col>
+
                 <Col sm="12" md="6" lg="6">
                   <FloatingLabel controlId="cedula" label="Cédula">
                     <Form.Control 
@@ -93,6 +96,7 @@ function Customer() {
                     />
                   </FloatingLabel>
                 </Col>
+
                 <Col sm="12" md="6" lg="6">
                   <FloatingLabel controlId="direccion" label="Dirección">
                     <Form.Control 
@@ -103,6 +107,7 @@ function Customer() {
                     />
                   </FloatingLabel>
                 </Col>
+
                 <Col sm="12" md="12" lg="12">
                   <FloatingLabel controlId="historialdecompras" label="Historial de compras">
                     <Form.Control 
@@ -113,6 +118,7 @@ function Customer() {
                     />
                   </FloatingLabel>
                 </Col>
+
               </Row>
               <div className="center-button">
                 <Button variant="primary" type="submit" className="mt-3" size="lg">
