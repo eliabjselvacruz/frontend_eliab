@@ -114,8 +114,8 @@ function Teacher() {
                       onChange={(e) => setGenero(e.target.value)}
                     >
                       <option>Seleccione el género</option>
-                      <option value="m">Mujer</option>
-                      <option value="h">Hombre</option>
+                      <option value="M">Mujer</option>
+                      <option value="H">Hombre</option>
                     </Form.Select>
                   </FloatingLabel>
                 </Col>
