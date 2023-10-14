@@ -20,10 +20,14 @@ function ListaDocentes() {
   // Función para abrir el modal y pasar los datos del docente seleccionado
   const openModal = (docente) => {
     setSelectedDocente(docente);
+
+    // Formatea la fecha para el campo "Fecha_Nacimiento"
+    const formattedFechaNacimiento = formatDateForInput(docente.Fecha_Nacimiento);
+
     setFormData({
       Nombres: docente.Nombres,
       Apellidos: docente.Apellidos,
-      Fecha_Nacimiento: docente.Fecha_Nacimiento,
+      Fecha_Nacimiento: formattedFechaNacimiento,
       Direccion: docente.Direccion,
       Genero: docente.Genero,
       Telefono: docente.Telefono,
@@ -32,7 +36,15 @@ function ListaDocentes() {
     });
     setShowModal(true);
   };
-  
+
+  function formatDateForInput(dateTimeString) {
+    const date = new Date(dateTimeString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Agregar ceros iniciales
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
   // Función para manejar cambios en el formulario
   const handleFormChange = (e) => {
     const { name, value } = e.target;
@@ -106,7 +118,7 @@ function ListaDocentes() {
                   <td>{docente.ID_Docente}</td>
                   <td>{docente.Nombres}</td>
                   <td>{docente.Apellidos}</td>
-                  <td>{docente.Fecha_Nacimiento}</td>
+                  <td>{formatDateForInput(docente.Fecha_Nacimiento)}</td>
                   <td>{docente.Direccion}</td>
                   <td>{docente.Genero}</td>
                   <td>{docente.Telefono}</td>
