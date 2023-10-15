@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Table, Button, Container, Card, Row, Col, Form, Modal, FloatingLabel  } from 'react-bootstrap';
 import Header from '../components/Header';
 
-function ListaDocentes() {
+function TeacherList() {
   const [docentes, setDocentes] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedDocente, setSelectedDocente] = useState({});
@@ -82,23 +82,23 @@ function ListaDocentes() {
       .catch((error) => console.error('Error al actualizar el registro:', error));
   };
 
-    // Función para eliminar un docente
-    const handleDelete = (idPersona) => {
-      const confirmation = window.confirm('¿Seguro que deseas eliminar este docente?');
-      if (confirmation) {
-        // Realiza la solicitud DELETE al servidor para eliminar el docente
-        fetch(`http://localhost:5000/crud/deleteDocentePersona/${idPersona}`, {
-          method: 'DELETE',
+  // Función para eliminar un docente
+  const handleDelete = (idPersona) => {
+    const confirmation = window.confirm('¿Seguro que deseas eliminar este docente?');
+    if (confirmation) {
+      // Realiza la solicitud DELETE al servidor para eliminar el docente
+      fetch(`http://localhost:5000/crud/deleteDocentePersona/${idPersona}`, {
+        method: 'DELETE',
+      })
+        .then((response) => {
+          if (response.ok) {
+            // La eliminación fue exitosa, refresca la lista de docentes
+            loadDocentes();
+          }
         })
-          .then((response) => {
-            if (response.ok) {
-              // La eliminación fue exitosa, refresca la lista de docentes
-              loadDocentes();
-            }
-          })
-          .catch((error) => console.error('Error al eliminar el docente:', error));
-      }
-    };
+        .catch((error) => console.error('Error al eliminar el docente:', error));
+    }
+  };
 
   // Realiza una solicitud GET al servidor para obtener los docentes
   useEffect(() => {
@@ -286,4 +286,4 @@ function ListaDocentes() {
   );
 }
 
-export default ListaDocentes;
+export default TeacherList;
