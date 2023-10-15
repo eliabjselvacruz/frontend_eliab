@@ -82,6 +82,24 @@ function ListaDocentes() {
       .catch((error) => console.error('Error al actualizar el registro:', error));
   };
 
+    // Función para eliminar un docente
+    const handleDelete = (idPersona) => {
+      const confirmation = window.confirm('¿Seguro que deseas eliminar este docente?');
+      if (confirmation) {
+        // Realiza la solicitud DELETE al servidor para eliminar el docente
+        fetch(`http://localhost:5000/crud/deleteDocentePersona/${idPersona}`, {
+          method: 'DELETE',
+        })
+          .then((response) => {
+            if (response.ok) {
+              // La eliminación fue exitosa, refresca la lista de docentes
+              loadDocentes();
+            }
+          })
+          .catch((error) => console.error('Error al eliminar el docente:', error));
+      }
+    };
+
   // Realiza una solicitud GET al servidor para obtener los docentes
   useEffect(() => {
     fetch('http://localhost:5000/crud/readDocentePersona')
@@ -126,7 +144,7 @@ function ListaDocentes() {
                   <td>{docente.Especialidad}</td>
                   <td>
                     <Button variant="primary" onClick={() => openModal(docente)}>Actualizar</Button>
-                    <Button variant="danger">Eliminar</Button>
+                    <Button variant="danger" onClick={() => handleDelete(docente.ID_Persona)}>Eliminar</Button>
                   </td>
                 </tr>
               ))}
