@@ -5,6 +5,8 @@ import About from './pages/About';
 import Customer from './pages/Customer';
 import Teacher from './pages/Teacher';
 import TeacherList from './pages/TeacherList';
+import Descuento from './pages/Descuento';
+import ListaDescuento from './pages/ListaDescuento';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/customer" element={<Customer />} />
         <Route path="/teacher" element={<Teacher />} />
         <Route path="/teacherList" element={<TeacherList />} />
+        <Route path="/descuento" element={<Descuento />} />
+        <Route path="/listaDescuento" element={<ListaDescuento />} />
       </Routes>
     </Router>
   );

@@ -52,6 +52,16 @@ function Header() {
                 </NavDropdown.Item>
               </NavDropdown>
 
+              <NavDropdown title="Descuentos" id="descuentos">
+                <NavDropdown.Item>
+                  <Link to="/descuento" className="link-unstyled">Registrar Descuento</Link>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item>
+                  <Link to="/listaDescuentos" className="link-unstyled">Listar Descuentos</Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+
             </Nav>
           </Navbar.Collapse>
           <Button
@@ -98,6 +108,16 @@ function Header() {
 
               <NavDropdown.Item>
                 <Link to="/teacherList" className="link-unstyled">Listar Docentes</Link>
+              </NavDropdown.Item>
+            </NavDropdown>
+
+            <NavDropdown title="Descuentos" id="descuentos">
+              <NavDropdown.Item>
+                <Link to="/descuento" className="link-unstyled">Registrar Descuento</Link>
+              </NavDropdown.Item>
+
+              <NavDropdown.Item>
+                <Link to="/listaDescuentos" className="link-unstyled">Listar Descuentos</Link>
               </NavDropdown.Item>
             </NavDropdown>
 
