@@ -58,7 +58,7 @@ function Header() {
                 </NavDropdown.Item>
 
                 <NavDropdown.Item>
-                  <Link to="/listaDescuentos" className="link-unstyled">Listar Descuentos</Link>
+                  <Link to="/listaDescuento" className="link-unstyled">Listar Descuentos</Link>
                 </NavDropdown.Item>
               </NavDropdown>
 
@@ -117,7 +117,7 @@ function Header() {
               </NavDropdown.Item>
 
               <NavDropdown.Item>
-                <Link to="/listaDescuentos" className="link-unstyled">Listar Descuentos</Link>
+                <Link to="/listaDescuento" className="link-unstyled">Listar Descuentos</Link>
               </NavDropdown.Item>
             </NavDropdown>
 
