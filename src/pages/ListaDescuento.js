@@ -113,8 +113,8 @@ function ListaDescuento() {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Nombres</th>
-                <th>Apellidos</th>
+                <th>Código Descuento</th>
+                <th>Condiciones</th>
                 <th>Fecha Inicio</th>
                 <th>Fecha Fin</th>
               </tr>
