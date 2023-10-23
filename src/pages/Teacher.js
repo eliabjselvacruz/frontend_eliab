@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Row, Col, Container, FloatingLabel, Card, Button } from 'react-bootstrap';
 import Header from '../components/Header';
 import '../styles/App.css';
@@ -13,7 +13,10 @@ function Teacher() {
   const [Genero, setGenero] = useState('');
   const [Telefono, setTelefono] = useState('');
   const [Correo, setCorreo] = useState('');
-  const [Especialidad, setEspecialidad] = useState('');
+
+  const [especialidades, setEspecialidades] = useState([]); // Estado para almacenar las especialidades
+  const [Especialidad, setEspecialidad] = useState(''); // Estado para el valor seleccionado
+
 
   // Función para manejar el envío del formulario
   const handleSubmit = async (e) => {
@@ -61,6 +64,19 @@ function Teacher() {
       alert('Error en la solicitud al servidor');
     }
   };
+
+  useEffect(() => {
+    // Realiza una solicitud a tu ruta para obtener las especialidades
+    fetch('http://localhost:5000/crud/readEspecialidades')
+      .then(response => response.json())
+      .then(data => {
+        // Actualiza el estado con las especialidades obtenidas
+        setEspecialidades(data);
+      })
+      .catch(error => {
+        console.error('Error al obtener las especialidades', error);
+      });
+  }, []);
 
   return(
     <div>
@@ -155,15 +171,17 @@ function Teacher() {
 
                 <Col sm="12" md="6" lg="4">
                   <FloatingLabel controlId="Especialidad" label="Especialidad">
-                    <Form.Select 
+                    <Form.Select
                       aria-label="Especialidad"
                       value={Especialidad}
                       onChange={(e) => setEspecialidad(e.target.value)}
                     >
                       <option>Seleccione la especialidad</option>
-                      <option value="Matemáticas">Matemáticas</option>
-                      <option value="Historia">Historia</option>
-                      <option value="Geografía">Geografía</option>
+                      {especialidades.map((especialidad) => (
+                        <option key={especialidad.Id_Especialidad} value={especialidad.Nombre_Especialidad}>
+                          {especialidad.Nombre_Especialidad}
+                        </option>
+                      ))}
                     </Form.Select>
                   </FloatingLabel>
                 </Col>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Button, Container, Card, Row, Col, Form, Modal, FloatingLabel  } from 'react-bootstrap';
+import { Table, Button, Card, Row, Col, Form, Modal, FloatingLabel  } from 'react-bootstrap';
 import Header from '../components/Header';
+import { FaTrashCan, FaPencil } from 'react-icons/fa6';
 
 function TeacherList() {
   const [docentes, setDocentes] = useState([]);
@@ -15,6 +16,37 @@ function TeacherList() {
     Telefono: '',
     Correo: '',
     Especialidad: '',
+  });
+
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filteredDocentes = docentes.filter((docente) => {
+    // Convierte los valores de los campos a minúsculas para realizar una búsqueda insensible a mayúsculas y minúsculas
+    const nombres = docente.Nombres.toLowerCase();
+    const apellidos = docente.Apellidos.toLowerCase();
+    const fechaNacimiento = formatDateForInput(docente.Fecha_Nacimiento).toLowerCase();
+    const direccion = docente.Direccion.toLowerCase();
+    const genero = docente.Genero.toLowerCase();
+    const telefono = docente.Telefono.toLowerCase();
+    const correo = docente.Correo.toLowerCase();
+    const especialidad = docente.Especialidad.toLowerCase();
+    const search = searchQuery.toLowerCase();
+  
+    // Verifica si la cadena de búsqueda se encuentra en algún campo
+    return (
+      nombres.includes(search) ||
+      apellidos.includes(search) ||
+      fechaNacimiento.includes(search) ||
+      direccion.includes(search) ||
+      genero.includes(search) ||
+      telefono.includes(search) ||
+      correo.includes(search) ||
+      especialidad.includes(search)
+    );
   });
 
   // Función para abrir el modal y pasar los datos del docente seleccionado
@@ -115,6 +147,20 @@ function TeacherList() {
       <Card className="m-3">
         <Card.Body>
           <Card.Title className="mb-3">Listado de Docente</Card.Title>
+
+          <Row className="mb-3">
+            <Col sm="6" md="6" lg="4">
+              <FloatingLabel controlId="search" label="Buscar">
+                <Form.Control
+                  type="text"
+                  placeholder="Buscar"
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                />
+              </FloatingLabel>
+            </Col>
+          </Row>
+
           <Table striped bordered hover>
             <thead>
               <tr>
@@ -131,7 +177,7 @@ function TeacherList() {
               </tr>
             </thead>
             <tbody>
-              {docentes.map((docente) => (
+              {filteredDocentes.map((docente) => (
                 <tr key={docente.ID_Docente}>
                   <td>{docente.ID_Docente}</td>
                   <td>{docente.Nombres}</td>
@@ -143,8 +189,8 @@ function TeacherList() {
                   <td>{docente.Correo}</td>
                   <td>{docente.Especialidad}</td>
                   <td>
-                    <Button variant="primary" onClick={() => openModal(docente)}>Actualizar</Button>
-                    <Button variant="danger" onClick={() => handleDelete(docente.ID_Persona)}>Eliminar</Button>
+                    <Button variant="success" onClick={() => openModal(docente)}> <FaPencil /></Button>
+                    <Button variant="danger" onClick={() => handleDelete(docente.ID_Persona)}><FaTrashCan /></Button>
                   </td>
                 </tr>
               ))}
