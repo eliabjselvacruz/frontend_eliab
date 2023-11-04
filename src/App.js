@@ -7,9 +7,10 @@ import Teacher from './pages/Teacher';
 import TeacherList from './pages/TeacherList';
 import Descuento from './pages/Descuento';
 import ListaDescuento from './pages/ListaDescuento';
-import GuardarImagen from './pages/GuardarImagen';
 import Galeria from './pages/Galeria';
 import Login from './pages/Login';
+import Producto from './pages/Producto';
+import ListaProductos from './pages/ListProductos';
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login rol={userRol} setRol={setUserRol} />} />
+        <Route path="/" element={<Login setRol={setUserRol} />} />
         <Route path="/home" element={<Home rol={userRol} />} />
         <Route path="/about" element={<About rol={userRol} />} />
         <Route path="/customer" element={<Customer rol={userRol} />} />
@@ -27,7 +28,8 @@ function App() {
         <Route path="/descuento" element={<Descuento rol={userRol} />} />
         <Route path="/listaDescuento" element={<ListaDescuento rol={userRol} />} />
         <Route path="/galeria" element={<Galeria rol={userRol} />} />
-        <Route path="/guardar-imagen" element={<GuardarImagen rol={userRol} />} />
+        <Route path="/producto" element={<Producto rol={userRol} />} />
+        <Route path="/listaproductos" element={<ListaProductos rol={userRol} />} />
       </Routes>
     </Router>
   );

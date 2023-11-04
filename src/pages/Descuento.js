@@ -3,7 +3,7 @@ import { Form, Row, Col, Container, FloatingLabel, Card, Button } from 'react-bo
 import Header from '../components/Header';
 import '../styles/App.css';
 
-function Descuento() {
+function Descuento({ rol }) {
 
   // Crear un estado para cada campo del formulario
   const [codigoDescuentos, setCodigoDescuentos] = useState('');
@@ -52,7 +52,7 @@ function Descuento() {
 
   return(
     <div>
-      <Header />
+      <Header rol={ rol }/>
       
       <Container>
         <Card className="mt-3">
