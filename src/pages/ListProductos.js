@@ -166,7 +166,7 @@ function ListaProductos({ rol }) {
     <div>
       <Header rol={ rol }/>
 
-      <Card className="m-3">
+      <Card className="margen-contenedor">
         <Card.Body>
           <Card.Title className="mb-3">Listado de Productos</Card.Title>
           <Row className="mb-3">
@@ -181,7 +181,7 @@ function ListaProductos({ rol }) {
               </FloatingLabel>
             </Col>
           </Row>
-          <Table striped bordered hover>
+          <Table striped bordered hover responsive>
             <thead>
               <tr>
                 <th>ID</th>

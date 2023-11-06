@@ -11,6 +11,7 @@ import Galeria from './pages/Galeria';
 import Login from './pages/Login';
 import Producto from './pages/Producto';
 import ListaProductos from './pages/ListProductos';
+import Estadisticas from './pages/Estadisticas';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/galeria" element={<Galeria rol={userRol} />} />
         <Route path="/producto" element={<Producto rol={userRol} />} />
         <Route path="/listaproductos" element={<ListaProductos rol={userRol} />} />
+        <Route path="/estadisticas" element={<Estadisticas rol={userRol} />} />
       </Routes>
     </Router>
   );

@@ -92,7 +92,7 @@ function Producto({ rol }) {
       <Header rol={ rol }/>
       
       <Container>
-        <Card className="mt-3">
+        <Card className="margen-contenedor">
           <Card.Body>
             <Card.Title>Registro de Productos</Card.Title>
             <Form className="mt-3" onSubmit={handleSubmit}>

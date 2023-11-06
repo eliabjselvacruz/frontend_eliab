@@ -16,7 +16,7 @@ function Header({ rol }) {
       {rol === 'admin' && (
         <div>
           {/* Navbar principal */}
-          <Navbar className="navbar-color" variant="dark" expand="md">
+          <Navbar className="navbar-color" variant="dark" expand="md" fixed='top'>
             <Container>
               <Navbar.Brand href="#home">Eliab51</Navbar.Brand>
               <Navbar.Toggle
@@ -31,9 +31,15 @@ function Header({ rol }) {
                     <Link to="/" className="link-unstyled">Inicio</Link>
                   </Nav.Link>
 
-                  <Nav.Link>
-                    <Link to="/guardar-imagen" className="link-unstyled">Guardar Imagen</Link>
-                  </Nav.Link>
+                  <NavDropdown title="Productos" id="productos">
+                    <NavDropdown.Item>
+                      <Link to="/producto" className="link-unstyled">Registrar Producto</Link>
+                    </NavDropdown.Item>
+
+                    <NavDropdown.Item>
+                      <Link to="/listaproductos" className="link-unstyled">Listar Productos</Link>
+                    </NavDropdown.Item>
+                  </NavDropdown>
 
                   <Nav.Link>
                     <Link to="/galeria" className="link-unstyled">Galeria</Link>
@@ -72,6 +78,10 @@ function Header({ rol }) {
                       <Link to="/listaDescuento" className="link-unstyled">Listar Descuentos</Link>
                     </NavDropdown.Item>
                   </NavDropdown>
+
+                  <Nav.Link>
+                    <Link to="/estadisticas" className="link-unstyled">Estadísticas</Link>
+                  </Nav.Link>
 
                 </Nav>
               </Navbar.Collapse>
