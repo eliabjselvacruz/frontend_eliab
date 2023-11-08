@@ -13,7 +13,7 @@ function Header({ rol }) {
   return (
 
     <div>
-      {rol === 'admin' && (
+      {'admin' === 'admin' && (
         <div>
           {/* Navbar principal */}
           <Navbar className="navbar-color" variant="dark" expand="md" fixed='top'>
@@ -81,6 +81,10 @@ function Header({ rol }) {
 
                   <Nav.Link>
                     <Link to="/estadisticas" className="link-unstyled">Estadísticas</Link>
+                  </Nav.Link>
+
+                  <Nav.Link>
+                    <Link to="/venta" className="link-unstyled">Venta</Link>
                   </Nav.Link>
 
                 </Nav>

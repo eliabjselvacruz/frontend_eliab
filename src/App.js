@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import Producto from './pages/Producto';
 import ListaProductos from './pages/ListProductos';
 import Estadisticas from './pages/Estadisticas';
+import Venta from './pages/Venta';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/producto" element={<Producto rol={userRol} />} />
         <Route path="/listaproductos" element={<ListaProductos rol={userRol} />} />
         <Route path="/estadisticas" element={<Estadisticas rol={userRol} />} />
+        <Route path="/venta" element={<Venta rol={userRol} />} />
       </Routes>
     </Router>
   );
