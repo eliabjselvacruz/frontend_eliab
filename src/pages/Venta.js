@@ -9,6 +9,7 @@ function Venta({ rol }) {
   const [formData, setFormData] = useState({
     idCliente: '',
     idEmpleado: '',
+    idProducto: ''
   });
 
   const [fecha, setFecha] = useState('');
