@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, Offcanvas, Button, NavDropdown, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FaRightFromBracket } from 'react-icons/fa6';
 
 function Header({ rol }) {
   const [showMenu, setShowMenu] = useState(false);
@@ -10,10 +11,16 @@ function Header({ rol }) {
     setShowMenu(!showMenu);
   };
 
+  // Función para cerrar sesión
+  const cerrarSesion = () => {
+    // Eliminar el rol del localStorage al cerrar sesión
+    localStorage.removeItem('userRol');
+  };
+
   return (
 
     <div>
-      {'admin' === 'admin' && (
+      {rol === 'admin' && (
         <div>
           {/* Navbar principal */}
           <Navbar className="navbar-color" variant="dark" expand="md" fixed='top'>
@@ -28,7 +35,7 @@ function Header({ rol }) {
                 <Nav className="ml-auto">
 
                   <Nav.Link>
-                    <Link to="/" className="link-unstyled">Inicio</Link>
+                    <Link to="/home" className="link-unstyled">Inicio</Link>
                   </Nav.Link>
 
                   <NavDropdown title="Productos" id="productos">
@@ -85,6 +92,10 @@ function Header({ rol }) {
 
                   <Nav.Link>
                     <Link to="/venta" className="link-unstyled">Venta</Link>
+                  </Nav.Link>
+
+                  <Nav.Link>
+                    <Link to="/" onClick={cerrarSesion} className="link-unstyled"><FaRightFromBracket /></Link>
                   </Nav.Link>
 
                 </Nav>
@@ -146,6 +157,10 @@ function Header({ rol }) {
                   </NavDropdown.Item>
                 </NavDropdown>
 
+                <Nav.Link>
+                  <Link to="/" onClick={cerrarSesion} className="link-unstyled"><FaRightFromBracket /></Link>
+                </Nav.Link>
+
               </Nav>
             </Offcanvas.Body>
           </Offcanvas>
@@ -189,6 +204,10 @@ function Header({ rol }) {
                     <Link to="/listaDescuento" className="link-unstyled">Listar Descuentos</Link>
                   </NavDropdown.Item>
                 </NavDropdown>
+
+                <Nav.Link>
+                  <Link to="/" onClick={cerrarSesion} className="link-unstyled"><FaRightFromBracket /></Link>
+                </Nav.Link>
 
               </Nav>
             </Navbar.Collapse>
@@ -248,6 +267,10 @@ function Header({ rol }) {
                   <Link to="/listaDescuento" className="link-unstyled">Listar Descuentos</Link>
                 </NavDropdown.Item>
               </NavDropdown>
+
+              <Nav.Link>
+                <Link to="/" onClick={cerrarSesion} className="link-unstyled"><FaRightFromBracket /></Link>
+              </Nav.Link>
 
             </Nav>
           </Offcanvas.Body>

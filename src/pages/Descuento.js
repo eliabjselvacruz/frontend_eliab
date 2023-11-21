@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Row, Col, Container, FloatingLabel, Card, Button } from 'react-bootstrap';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import '../styles/App.css';
 
 function Descuento({ rol }) {
@@ -115,6 +116,8 @@ function Descuento({ rol }) {
           </Card.Body>
         </Card>
       </Container>
+
+      <Footer/>
 
     </div>
   );

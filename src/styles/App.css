@@ -67,3 +67,17 @@
 .social-icon a:hover {
   color: #007bff;
 }
+
+/* En SinAcceso.css */
+.sin-acceso-container {
+  height: 100vh; /* 100% de la altura de la ventana */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sin-acceso-card {
+  width: 300px;
+  text-align: center;
+  padding: 20px;
+}
